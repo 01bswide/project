@@ -1,0 +1,29 @@
+# VScode workspace
+workspace.code-workspace
+
+# web dependencies
+web/node_modules
+
+# next.js
+web/.next/
+web/out/
+
+# web production
+web/build
+
+# server dependencies
+server/node_modules
+
+# server production
+server/dist
+
+# debug
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
+
+# git
+/.git
