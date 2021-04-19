@@ -1,4 +1,4 @@
-import useId from "./utils/useId";
+import useId from "./util/useId";
 
 interface CheckboxProps {
   checked?: boolean;

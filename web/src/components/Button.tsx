@@ -18,7 +18,7 @@ export function WarningButton(props: VariantButtonProps) {
   return <Button {...props} variant="warning" />;
 }
 
-interface ButtonProps {
+export interface ButtonProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
   dark?: boolean;
@@ -29,7 +29,7 @@ interface ButtonProps {
   variant: "primary" | "secondary" | "warning" | "danger";
 }
 
-function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
   const {
     children,
     dark,
@@ -45,7 +45,7 @@ function Button(props: ButtonProps) {
       type={type}
       disabled={disabled || loading}
       onClick={onClick}
-      className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-${
+      className={`items-center group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-${
         dark ? "info" : "white"
       } bg-${variant} hover:bg-${variant}${
         !disabled ?? "-hover"
