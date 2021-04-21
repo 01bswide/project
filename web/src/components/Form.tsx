@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 import { Button, ButtonProps } from "./Button";
 import ErrorAlert from "./ErrorAlert";
+import Spinner from "./icons/Spinner";
 import IconWrapper from "./IconWrapper";
 import useId from "./util/useId";
 import useIsUnmounted from "./util/useIsUnmounted";
@@ -111,10 +112,10 @@ Form.SubmitButton = function FormSubmitButton(props: FormSubmitButtonProps) {
 
   return (
     <Button loading={isLoading} type="submit" variant={variant}>
-      <IconWrapper textBaseline position="left">
-        {icon}
+      <IconWrapper position="left">
+        {isLoading ? <Spinner /> : icon}
       </IconWrapper>
-      {isLoading ? loadingLabel + "â€¦" : submitLabel}
+      {isLoading ? loadingLabel + "..." : submitLabel}
     </Button>
   );
 };
