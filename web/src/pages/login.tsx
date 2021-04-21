@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
-import { PrimaryButton } from "../components/Button";
 import Checkbox from "../components/Checkbox";
-import IconWrapper from "../components/IconWrapper";
 import Lock from "../components/icons/Lock";
-import ErrorAlert from "../components/ErrorAlert";
 import Form from "../components/Form";
 import UserVisibleError from "../util/UserVisibleError";
 
