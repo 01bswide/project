@@ -4,10 +4,23 @@ import Checkbox from "../components/Checkbox";
 import Lock from "../components/icons/Lock";
 import Form from "../components/Form";
 import UserVisibleError from "../util/UserVisibleError";
+import { useMutation } from "urql";
 
-interface registerProps {}
+const LOGIN_MUTATION = `
+mutation Login($usernameOrEmail: String!, $password:String!) {
+  login(usernameOrEmail: $usernameOrEmail, password: $password) {
+    user {
+      id
+      username
+    }
+    errors {
+      field
+      message
+    }
+  }
+}`;
 
-const Login: React.FC<registerProps> = () => {
+const Login: React.FC = () => {
   return (
     <div className="min-h-screen flex mt-16 justify-center py-1 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -37,6 +50,7 @@ function LoginForm(props: LoginFormProps) {
   const { className } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [{}, login] = useMutation(LOGIN_MUTATION);
 
   const handleSubmit = async () => {
     if (email === "ben@ben") {
@@ -45,6 +59,7 @@ function LoginForm(props: LoginFormProps) {
     if (password === "password") {
       throw new UserVisibleError("password cannot be password");
     }
+    login({ usernameOrEmail: email, password: password });
   };
 
   return (
